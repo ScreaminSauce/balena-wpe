@@ -6,11 +6,7 @@ udevadm trigger
 fbcp &
 
 serial=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2`
-if [ ! -e "afUuid.txt" ]; then
-   uuidgen > afUuid.txt
-fi
-deviceId=`cat afUuid.txt`;
 
-export WPE_URL="$BASE_URL?deviceId=$deviceId&serial=$serial&type=pi"
+export WPE_URL="$BASE_URL?&serial=$serial&type=pi"
 
 WPE_BCMRPI_TOUCH=1 WPELauncher $WPE_URL
