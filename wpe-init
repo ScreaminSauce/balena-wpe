@@ -7,6 +7,7 @@ fbcp &
 
 serial=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2`
 
-export WPE_URL="$BASE_URL?serial=$serial&type=pi"
+export WPE_URL="$BASE_URL?deviceId=$BALENA_DEVICE_UUID&serial=$serial&type=pi"
+echo "$WPE_URL"
 
 WPE_BCMRPI_TOUCH=1 WPELauncher $WPE_URL
