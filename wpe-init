@@ -5,6 +5,9 @@ udevadm trigger
 
 fbcp &
 
+RUN apt-get update && apt-get install -y \
+  uuid-runtime \
+
 serial=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2`
 if [ ! -e "afUuid.txt" ]; then
    uuidgen > afUuid.txt
